@@ -1,0 +1,1 @@
+This is where graphs from the differential flow NN (test_differential.py) are stored.
