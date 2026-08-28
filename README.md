@@ -16,7 +16,7 @@ p2, q2, q4, Q2, Q4 (for calculating d2{2} and d2{4} for differential flow) (not 
 From calculating the amount of time it takes to run truth calculations when creating the datasets to run the data through the NNs, we found that running data through the nets was far faster than truth calculations.  This does not include all the saving and loading of arrays, which takes the bulk of time in both truth and net calculations.
 
 ### Data Rotation
-	In creating the datasets, there is an option to rotate each event by some angle (or multiple angles) ⍺, such that each 𝜙 in the event undergoes the transformation 𝜙 → 𝜙 + ⍺.  Adding an additional copy of the dataset rotated greatly increases the training efficiency, even with a few rotations, as seen below with a starting dataset size of 50,000 events.  In cases where data is limited, rotating the data can help to simulate a larger dataset.
+In creating the datasets, there is an option to rotate each event by some angle (or multiple angles) ⍺, such that each 𝜙 in the event undergoes the transformation 𝜙 → 𝜙 + ⍺.  Adding an additional copy of the dataset rotated greatly increases the training efficiency, even with a few rotations, as seen below with a starting dataset size of 50,000 events.  In cases where data is limited, rotating the data can help to simulate a larger dataset.
 
 
 ## Using the Code
@@ -25,7 +25,7 @@ To create a dataset, use the create_dataset() function in deepsets.py.  The “p
 Note: if creating datasets to test a NN for differential flow, name each dataset “{name}_{i}” for i many pt bins.  Yeah, the notation for chunks and differential flow is the same.  Don’t use them at the same time.
 
 ### Training a NN
-	To train a neural net, use the train_net() function in dnn.py.  The “folders” parameter can be a string or list of strings specifying the dataset(s) to be trained on.  If the dataset was saved in chunks and the “chunks” parameter here is set to True, the net will automatically train on all saved chunks.  The net saves to the models folder under the same name(s) of the dataset(s) used to train it.  I trained nets of the following varieties.
+To train a neural net, use the train_net() function in dnn.py.  The “folders” parameter can be a string or list of strings specifying the dataset(s) to be trained on.  If the dataset was saved in chunks and the “chunks” parameter here is set to True, the net will automatically train on all saved chunks.  The net saves to the models folder under the same name(s) of the dataset(s) used to train it.  I trained nets of the following varieties.
 Q2, Q4, Q6, Q8 (for use in calculating c2{2}, c2{4}, c2{6}, and c2{8}).  This net has 5 inputs (phi, eta, pt, cos(phi), sin(phi)) and 8 outputs (x- and y-components for each Q-vector).
 
 Qa, Qb, Qc, Qd (for use in calculating c2{2} by splitting each event into four subevents).  This net has 5 inputs and 8 outputs (same as above).
@@ -34,9 +34,14 @@ Q2, Q4, Qa, Qb, Qc, Qd (combining both of the above).  This net has 5 inputs (sa
 p2, q2, q4, Q2, Q4 (for calculating d2{2} and d2{4} for differential flow).  This has 7 inputs (the 5 inputs above followed by one-hot embedding labelling particles as POI or reference particles).
 
 ### Testing the NN
-	There are several files labelled “testing”: testing.py, test_all.py, test_all.py, test_differential.py, which create cumulant graphs for the above NNs, respectively.
-	NOTE: in subevents.py, there’s an statement “from calculations import *”.  Because of slurm files in different folders, I’ve had to change that back and forth between “from calculations import *” and “from deepsets.calculations import *”.  I never figured out how to fix that error with slurm.  I used “from calculations import *” for deepsets.py and “from deepsets.calculations import *” for testing files.
-	If you figure out how to fix this, power to you.
+There are several files labelled “testing”: testing.py, test_all.py, test_all.py, test_differential.py, which create cumulant graphs for the above NNs, respectively.
+NOTE: in subevents.py, there’s an statement “from calculations import *”.  Because of slurm files in different folders, I’ve had to change that back and forth between
+
+	from calculations import *
+for deepsets.py and
+
+	from deepsets.calculations import *
+for testing files..  I never figured out how to fix that error with slurm.  If you figure out how to fix this, power to you.
 
 ### Most Important Functions
 deepsets.py - main().  Creates datasets.
