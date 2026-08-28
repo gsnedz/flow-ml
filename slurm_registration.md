@@ -24,7 +24,7 @@ and this command to move a file from the cluster to your local device:
   ```scp [options] [net id]@cc-login.campuscluster.edu:/~[home file path on cluster] ./[destination file path on local device]```
 	
 Running code on the cluster.
-	When on the cluster, all the usual Linux file commands (cd, ls, nano, etc.) work.  With access to Slurm, you can also use all of the Slurm commands, outlined here https://slurm.schedmd.com/quickstart.html.  Important to note are
+	When on the cluster, all the usual Linux file commands (```cd```, ```ls```, ```nano```, etc.) work.  With access to Slurm, you can also use all of the Slurm commands, outlined here https://slurm.schedmd.com/quickstart.html.  Important to note are
 	
 ```sbatch [file].slurm``` to run a .slurm file,
 
