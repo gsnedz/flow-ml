@@ -12,16 +12,16 @@ which will log into the campus cluster.  Note that when entering password on the
 
 ## Moving files from local device to cluster and back.
 If using the NCSA Jupyter notebook site (jupyter.ncsa.illinois.edu), you may enter the command 
-  
-  ```!ln -s /u/[net id] ${HOME}/home```
+
+	!ln -s /u/[net id] ${HOME}/home
   
 in a Jupyter notebook, which will create a shortcut in the file navigator GUI on NCSA to the folder on the Cluster.  Thus through the Jupyter notebook site you can easily upload, download, move, view, and edit files in the Cluster.
 	Otherwise, to move files directly between the cluster and your local device, use the following terminal command when logged into your local device to move a file from your device to the cluster:
 	
-  ```scp [options] [home file path on local device] [net id]@cc-login.campuscluster.illinois.edu:/[destination file path on cluster]```
+	scp [options] [home file path on local device] [net id]@cc-login.campuscluster.illinois.edu:/[destination file path on cluster]
 and this command to move a file from the cluster to your local device:
-	
-  ```scp [options] [net id]@cc-login.campuscluster.edu:/~[home file path on cluster] ./[destination file path on local device]```
+
+	scp [options] [net id]@cc-login.campuscluster.edu:/~[home file path on cluster] ./[destination file path on local device]
 	
 Running code on the cluster.
 	When on the cluster, all the usual Linux file commands (```cd```, ```ls```, ```nano```, etc.) work.  With access to Slurm, you can also use all of the Slurm commands, outlined here https://slurm.schedmd.com/quickstart.html.  Important to note are
