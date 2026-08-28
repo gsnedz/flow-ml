@@ -1,6 +1,6 @@
 # So You Want to Use Machine Learning to Calculate Elliptical Flow:
 ### Flow ML Documentation
-## #Garrett Snedden, Summer 2026
+### Garrett Snedden, Summer 2026
 
 Hi!  If you’re reading this, it means you probably want to train neural nets to do flow calculations!  This code contains a lot of that- DNNs, datasets to train and test them, code to test them, all that good stuff.
 
