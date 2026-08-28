@@ -1,0 +1,1 @@
+This is where np arrays are stored after they are processed by the NN.
